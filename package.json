@@ -1,0 +1,16 @@
+{
+  "name": "investing-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/collinwalsh1998/investing-dashboard.git"
+  },
+  "author": "Collin Walsh",
+  "license": "ISC",
+  "homepage": "https://github.com/collinwalsh1998/investing-dashboard.git#readme"
+}
