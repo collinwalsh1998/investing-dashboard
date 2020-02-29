@@ -21,11 +21,11 @@ class DataController {
         } catch(err) {
             return err;
         }
-	}
+    }
 
-	getCoinbaseData() {
+    getCoinbaseData() {
 
-	}
+    }
 
     getAllAssets(req, res) {
         this.getAllyInvestData().then((data) => {
