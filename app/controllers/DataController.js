@@ -1,14 +1,16 @@
 //import packages and controllers
 import AuthController from "./AuthController.js";
+import DataParser from "../utils/data-parser.js";
 import got from "got";
 
 class DataController {
 	constructor() {
 		this.allyApiEndpoint = process.env.BROKER_ONE_API_ENDPOINT;
         this.authController = new AuthController();
+        this.dataParser = new DataParser();
 	}
 
-	async getAllyInvestData() {
+	async requestAllyInvestData() {
         try {
             const requestUrl = this.allyApiEndpoint + "/accounts.json";
 
@@ -23,16 +25,25 @@ class DataController {
         }
     }
 
-    getCoinbaseData() {
+    requestAllySavingsData() {
 
     }
 
-    getAllAssets(req, res) {
-        this.getAllyInvestData().then((data) => {
-            res.status(200);
-            res.json({ data: data });
-            return;
+    requestCoinbaseData() {
+        
+    }
+
+    async getAllAssets(req, res) {
+        let allyInvestData = await this.requestAllyInvestData();
+        allyInvestData = this.dataParser.parseAllyAccountData(allyInvestData);
+
+        res.status(200);
+        res.json({
+            status: "success",
+            response: allyInvestData
         });
+
+        return;
     }
 }
 
