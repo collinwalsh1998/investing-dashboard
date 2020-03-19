@@ -4,5 +4,5 @@ import DataController from "../controllers/DataController.js";
 export default function(app) {
 	const dataController = new DataController();
 
-	app.get("/getAllAssets", (req, res) => dataController.getAllAssets(req, res));
+	app.get("/getAccountData", (req, res) => dataController.getAccountData(req, res));
 };

@@ -54,15 +54,17 @@ class DataController {
         });
     }
 
-    async getAllAssets(req, res) {
+    async getAccountData(req, res) {
         let allyInvestData = await this.requestAllyInvestData();
         let coinbaseData = await this.requestCoinbaseData();
 
         res.status(200);
         res.json({
-            status: "success",
-            allyData: allyInvestData,
-            coinbaseData: coinbaseData
+            success: true,
+            accountData: {
+                allyData: allyInvestData,
+                coinbaseData: coinbaseData
+            }
         });
 
         return;
