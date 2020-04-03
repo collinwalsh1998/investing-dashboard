@@ -25,7 +25,7 @@ class AuthController {
 	}
 
 	getCoinbaseClient() {
-		return new coinbase.Client({ "apiKey": process.env.COINBASE_API_KEY, "apiSecret": process.env.COINBASE_API_SECRET });
+		return new coinbase.Client({ "apiKey": process.env.COINBASE_API_KEY, "apiSecret": process.env.COINBASE_API_SECRET, strictSSL: false });
 	}
 }
 
